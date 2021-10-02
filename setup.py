@@ -1,14 +1,21 @@
 from setuptools import setup, find_packages
+import os
 
-VERSION="0.0.1"
-with open("README.rst", "r", encoding="utf-8") as fh:
+VERSION="0.0.6"
+if os.path.exists('README.rst'):
+    filename = 'README.rst'
+    content_type = 'text/rst'
+elif os.path.exists('README.md'):
+    filename = 'README.md'
+    content_type = 'text/markdown'
+with open(filename, "r", encoding="utf-8") as fh:
     long_description = fh.read()
 setup(
     name='ida-is',
     version=VERSION,
     url='https://github.com/sfinktah/ida-is',
     long_description=long_description,
-    long_description_content_type="text/x-rst",
+    long_description_content_type=content_type,
     license='MIT',
     author='Christopher Anderson',
     author_email='sfinktah@github.spamtrak.org',
@@ -23,4 +30,3 @@ setup(
     packages=find_packages(),
     install_requires=[],
 )
-

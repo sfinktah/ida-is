@@ -1,2 +1,0 @@
-from .ida-is import *
-
